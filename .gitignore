@@ -1,0 +1,26 @@
+# Ignore build directories in all submodules
+**/build/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+out/
+
+# Ignore gradle directories in all submodules
+**/.gradle/
+
+# macOS files
+.DS_Store
+
+# Java and Kotlin specific files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.log
+
+# Generated files
+generated/
