@@ -17,10 +17,10 @@ public class StateSynchronizer {
 			}
 
 			if (setup.thirdPartySyncRequired() && DesiredState.ON.equals(setup.state())) {
-				thirdPartySynchronizer.schedule(setup.id());
+				thirdPartySynchronizer.enable(setup.id());
 			} else {
 				if (!setup.thirdPartySyncRequired() || !DesiredState.ON.equals(setup.state())) {
-					thirdPartySynchronizer.unschedule(setup.id());
+					thirdPartySynchronizer.disable(setup.id());
 				}
 			}
 			internalSynchronizer.update(setup);
@@ -36,7 +36,7 @@ public class StateSynchronizer {
 
 			if (!DesiredState.ON.equals(setup.state())) {
 				if (setup.thirdPartySyncRequired()) {
-					thirdPartySynchronizer.unschedule(setup.id());
+					thirdPartySynchronizer.disable(setup.id());
 				}
 				if (!InternalState.REMOVED.equals(internalState)) {
 					internalSynchronizer.remove(setup.id());
